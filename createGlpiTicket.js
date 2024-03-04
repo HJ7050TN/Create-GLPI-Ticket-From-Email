@@ -3,6 +3,11 @@ const fs = require("fs");
 const path = require("path");
 const FormData = require("form-data");
 
+const logFile = fs.createWriteStream("log.txt", { flags: "a" });
+console.log = (message) => {
+  logFile.write(`${new Date().toISOString()} - ${message}\n`);
+};
+
 const apiUrl = "http://172.20.93.1/apirest.php";
 const appToken = "PHiPwxf9uWpjJIzMQr6GCVkZ6q5oeEU163TVZScs";
 const auth = {

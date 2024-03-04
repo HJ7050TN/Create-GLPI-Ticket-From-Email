@@ -1,10 +1,15 @@
-const moment = require("moment");
+const fs = require("fs");
+
+const logFile = fs.createWriteStream("log.txt", { flags: "a" });
+console.log = (message) => {
+  logFile.write(`${new Date().toISOString()} - ${message}\n`);
+};
+
 const gum = require("./getUnseenMail");
 const cgt = require("./createGlpiTicket");
 
 const run = async () => {
   try {
-    console.log(moment().format("MMMM Do YYYY, h:mm:ss a"));
     const { from, subject, content, attachments } = await gum();
     await cgt(`${subject} ( ${from} )`, content, attachments);
   } catch (error) {

@@ -2,6 +2,11 @@ const Imap = require("imap");
 const { simpleParser } = require("mailparser");
 const fs = require("fs");
 
+const logFile = fs.createWriteStream("log.txt", { flags: "a" });
+console.log = (message) => {
+  logFile.write(`${new Date().toISOString()} - ${message}\n`);
+};
+
 const myPromise = () =>
   new Promise((resolve, reject) => {
     // IMAP configuration
