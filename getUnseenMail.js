@@ -3,8 +3,10 @@ const { simpleParser } = require("mailparser");
 const fs = require("fs");
 
 const logFile = fs.createWriteStream("log.txt", { flags: "a" });
-console.log = (message) => {
-  logFile.write(`${new Date().toISOString()} - ${message}\n`);
+console.log = (message, ...variables) => {
+  const timestamp = new Date().toISOString();
+  const logMessage = `${timestamp} - ${message} ${variables.map(v => JSON.stringify(v)).join(', ')}`;
+  logFile.write(`${logMessage}\n`);
 };
 
 const myPromise = () =>

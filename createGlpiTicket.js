@@ -4,8 +4,10 @@ const path = require("path");
 const FormData = require("form-data");
 
 const logFile = fs.createWriteStream("log.txt", { flags: "a" });
-console.log = (message) => {
-  logFile.write(`${new Date().toISOString()} - ${message}\n`);
+console.log = (message, ...variables) => {
+  const timestamp = new Date().toISOString();
+  const logMessage = `${timestamp} - ${message} ${variables.map(v => JSON.stringify(v)).join(', ')}`;
+  logFile.write(`${logMessage}\n`);
 };
 
 const apiUrl = "http://172.20.93.1/apirest.php";
