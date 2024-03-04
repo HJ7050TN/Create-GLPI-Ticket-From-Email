@@ -1,0 +1,19 @@
+{
+  "name": "mailing-glpi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "HJ",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.6.7",
+    "form-data": "^4.0.0",
+    "fs": "^0.0.1-security",
+    "imap": "^0.8.19",
+    "mailparser": "^3.6.7",
+    "moment": "^2.30.1"
+  }
+}
