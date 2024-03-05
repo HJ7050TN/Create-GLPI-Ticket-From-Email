@@ -1,23 +1,28 @@
+require("dotenv").config();
 const Imap = require("imap");
 const { simpleParser } = require("mailparser");
 const fs = require("fs");
 
-const logFile = fs.createWriteStream("log.txt", { flags: "a" });
-console.log = (message, ...variables) => {
-  const timestamp = new Date().toISOString();
-  const logMessage = `${timestamp} - ${message} ${variables.map(v => JSON.stringify(v)).join(', ')}`;
-  logFile.write(`${logMessage}\n`);
-};
+if (process.env.SAVE_LOG == "ON") {
+  const logFile = fs.createWriteStream("log.txt", { flags: "a" });
+  console.log = (message, ...variables) => {
+    const timestamp = new Date().toISOString();
+    const logMessage = `${timestamp} - ${message} ${variables
+      .map((v) => JSON.stringify(v))
+      .join(", ")}`;
+    logFile.write(`${logMessage}\n`);
+  };
+}
 
 const myPromise = () =>
   new Promise((resolve, reject) => {
     // IMAP configuration
     const imapConfig = {
-      user: "helpdesksdi@elfouladh.com.tn",
-      password: "Elfo#3109",
-      host: "imap.gnet.tn",
-      port: 143,
-      tls: false,
+      user: process.env.MAIL,
+      password: process.env.PASSWORD,
+      host: process.env.HOST,
+      port: process.env.PORT,
+      tls: process.env.TLS == "ON",
     };
 
     // Connect to the IMAP server

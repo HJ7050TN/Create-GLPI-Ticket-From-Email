@@ -1,23 +1,28 @@
+require("dotenv").config();
 const axios = require("axios");
 const fs = require("fs");
 const path = require("path");
 const FormData = require("form-data");
 
-const logFile = fs.createWriteStream("log.txt", { flags: "a" });
-console.log = (message, ...variables) => {
-  const timestamp = new Date().toISOString();
-  const logMessage = `${timestamp} - ${message} ${variables.map(v => JSON.stringify(v)).join(', ')}`;
-  logFile.write(`${logMessage}\n`);
-};
 
-const apiUrl = "http://172.20.93.1/apirest.php";
-const appToken = "PHiPwxf9uWpjJIzMQr6GCVkZ6q5oeEU163TVZScs";
+if (process.env.SAVE_LOG == "ON") {
+  const logFile = fs.createWriteStream("log.txt", { flags: "a" });
+  console.log = (message, ...variables) => {
+    const timestamp = new Date().toISOString();
+    const logMessage = `${timestamp} - ${message} ${variables
+      .map((v) => JSON.stringify(v))
+      .join(", ")}`;
+    logFile.write(`${logMessage}\n`);
+  };
+}
+
+const apiUrl = process.env.GLPI_API_ADDRESS;
+const appToken = process.env.TOKEN;
 const auth = {
-  username: "glpi",
-  password: "Elfo#3109",
+  username: process.env.USERNAME,
+  password: process.env.PASSWORD,
 };
 let sessionToken;
-let LinkedDoc = [];
 
 async function uploadDocumentToGLPI(ticketId, documentFilePath) {
   try {
@@ -71,7 +76,7 @@ async function uploadDocumentToGLPI(ticketId, documentFilePath) {
         },
       }
     );
-    console.log(" id: ",docLink.data.id,"\n","File Name: ", documentName );
+    console.log(" id: ", docLink.data.id, "\n", "File Name: ", documentName);
   } catch (error) {
     console.error(
       "Error uploading document to GLPI:",
@@ -118,7 +123,7 @@ async function createGlpiTicket(title, description, paths) {
     console.log("Ticket created:", ticketResponse.data);
 
     if (paths.length > 0) {
-      console.log("Attachments: ")
+      console.log("Attachments: ");
       for (const path of paths) {
         await uploadDocumentToGLPI(ticketResponse.data.id, path);
       }
