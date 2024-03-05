@@ -6,28 +6,38 @@ GLPIEmailHandler is a Node.js application designed to automate ticket creation i
 
 1. Clone the repository:
 
+```
 git clone https://github.com/HJ7050TN/GLPIEmailHandler
+```
 
 2. Install dependencies:
 
+```
 cd GLPIEmailHandler
 npm install
+```
 
 ## Usage
 
 Once installed, you can run the application using npm:
 
+```
 npm start
+```
 
 To ensure uninterrupted operation, it's recommended to run the application continuously using a process manager like PM2:
 
 1. Install PM2 globally (if not already installed):
 
+```
 npm install -g pm2
+```
 
 2. Start the application with PM2:
 
+```
 pm2 start ecosystem.config.js
+```
 
 The application will now run continuously, automatically restarting every 10 seconds according to the cron schedule specified in the configuration.
 
@@ -35,7 +45,9 @@ The application will now run continuously, automatically restarting every 10 sec
 
 To stop the application when using PM2, you can run:
 
+```
 pm2 stop glpi-email-handler
+```
 
 This will stop the application gracefully.
 
