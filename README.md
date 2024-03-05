@@ -19,12 +19,6 @@ npm install
 
 ## Usage
 
-Once installed, you can run the application using npm:
-
-```
-npm start
-```
-
 To ensure uninterrupted operation, it's recommended to run the application continuously using a process manager like PM2:
 
 1. Install PM2 globally (if not already installed):

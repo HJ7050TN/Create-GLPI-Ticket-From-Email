@@ -3,9 +3,6 @@
   "version": "0.1.0",
   "description": "GLPIEmailHandler is a lightweight solution that seamlessly connects your email inbox with GLPI, enabling effortless ticket creation and efficient communication management. Automate the process of converting emails into actionable tickets, streamlining your workflow and enhancing productivity.",
   "main": "index.js",
-  "scripts": {
-    "start": "node index.js"
-  },
   "author": "HJ",
   "license": "ISC",
   "dependencies": {
