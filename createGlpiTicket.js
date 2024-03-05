@@ -4,7 +4,6 @@ const fs = require("fs");
 const path = require("path");
 const FormData = require("form-data");
 
-
 if (process.env.SAVE_LOG == "ON") {
   const logFile = fs.createWriteStream("log.txt", { flags: "a" });
   console.log = (message, ...variables) => {
@@ -19,8 +18,8 @@ if (process.env.SAVE_LOG == "ON") {
 const apiUrl = process.env.GLPI_API_ADDRESS;
 const appToken = process.env.TOKEN;
 const auth = {
-  username: process.env.USERNAME,
-  password: process.env.PASSWORD,
+  username: process.env.GLPI_USERNAME,
+  password: process.env.GLPI_PASSWORD,
 };
 let sessionToken;
 

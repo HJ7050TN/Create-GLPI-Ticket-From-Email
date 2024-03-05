@@ -19,7 +19,7 @@ const myPromise = () =>
     // IMAP configuration
     const imapConfig = {
       user: process.env.MAIL,
-      password: process.env.PASSWORD,
+      password: process.env.MAIL_PASSWORD,
       host: process.env.HOST,
       port: process.env.PORT,
       tls: process.env.TLS == "ON",
