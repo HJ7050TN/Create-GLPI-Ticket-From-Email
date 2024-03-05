@@ -9,11 +9,12 @@
   "author": "HJ",
   "license": "ISC",
   "dependencies": {
-    "axios": "0.24.0",
-    "dotenv": "10.0.0",
-    "find-remove": "4.1.0",
-    "form-data": "5.2.1",
-    "imap": "0.8.19",
-    "mailparser": "3.6.7"
+    "axios": "^1.6.7",
+    "dotenv": "^16.4.5",
+    "find-remove": "^4.1.0",
+    "form-data": "^4.0.0",
+    "fs": "^0.0.1-security",
+    "imap": "^0.8.19",
+    "mailparser": "^3.6.7"
   }
 }
