@@ -1,20 +1,19 @@
 {
-  "name": "mailing-glpi",
-  "version": "1.0.0",
-  "description": "",
+  "name": "glpi-email-handler",
+  "version": "0.1.0",
+  "description": "GLPIEmailHandler is a lightweight solution that seamlessly connects your email inbox with GLPI, enabling effortless ticket creation and efficient communication management. Automate the process of converting emails into actionable tickets, streamlining your workflow and enhancing productivity.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "author": "HJ",
   "license": "ISC",
   "dependencies": {
-    "axios": "^1.6.7",
-    "dotenv": "^16.4.5",
-    "find-remove": "^4.1.0",
-    "form-data": "^4.0.0",
-    "fs": "^0.0.1-security",
-    "imap": "^0.8.19",
-    "mailparser": "^3.6.7"
+    "axios": "0.24.0",
+    "dotenv": "10.0.0",
+    "find-remove": "4.1.0",
+    "form-data": "5.2.1",
+    "imap": "0.8.19",
+    "mailparser": "3.6.7"
   }
 }

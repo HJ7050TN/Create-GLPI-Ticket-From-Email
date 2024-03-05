@@ -22,7 +22,9 @@ const run = async () => {
     await cgt(`${subject} ( ${from} )`, content, attachments);
     if (process.env.ATTACHEMNTS_DELETE_AFTER !== "0") {
       findRemoveSync(__dirname + "/attachments", {
-        age: { seconds: 60 * 60 * 24 * process.env.ATTACHEMNTS_DELETE_AFTER },
+        age: {
+          seconds: 60 * 60 * 24 * Number(process.env.ATTACHEMNTS_DELETE_AFTER),
+        },
       });
     }
   } catch (error) {
