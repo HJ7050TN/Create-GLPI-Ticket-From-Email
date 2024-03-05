@@ -41,7 +41,7 @@ pm2 start ecosystem.config.js
 
 The application will now run continuously, automatically restarting every 10 seconds according to the cron schedule specified in the configuration.
 
-## Stopping the Application
+## Stopping the Application and Delete
 
 To stop the application when using PM2, you can run:
 
@@ -49,7 +49,13 @@ To stop the application when using PM2, you can run:
 pm2 stop glpi-email-handler
 ```
 
-This will stop the application gracefully.
+To delete the application when using PM2, you can run:
+
+```
+pm2 delete glpi-email-handler
+```
+
+This will stop and delete the application gracefully.
 
 ## Configuration
 
