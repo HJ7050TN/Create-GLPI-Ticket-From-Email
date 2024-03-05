@@ -30,7 +30,7 @@ To ensure uninterrupted operation, it's recommended to run the application conti
 1. Install PM2 globally (if not already installed):
 
 ```
-npm install -g pm2
+npm install pm2@latest -g
 ```
 
 2. Start the application with PM2:
