@@ -17,6 +17,30 @@ cd GLPIEmailHandler
 npm install
 ```
 
+## Configuration
+
+GLPIEmailHandler can be configured via environment variables. Create a `.env` file in the root directory and specify the required variables. Use the `.env.example` file as a template.
+
+### Environment Variables
+
+- **IMAP Configuration**:
+  - `MAIL`: Email address.
+  - `MAIL_PASSWORD`: Email password.
+  - `HOST`: IMAP address of the mail host.
+  - `PORT`: IMAP port.
+  - `TLS`: Enable or disable TLS (ON/OFF).
+
+- **GLPI Configuration**:
+  - `GLPI_API_ADDRESS`: URL of the GLPI API.
+  - `TOKEN`: API token for authentication.
+  - `GLPI_USERNAME`: GLPI username (super admin).
+  - `GLPI_PASSWORD`: GLPI password.
+
+- **Global Configuration**:
+  - `SAVE_LOG`: Enable or disable logging (ON/OFF).
+  - `ATTACHMENTS_DELETE_AFTER`: Number of days to keep attachments downloaded from emails (0 to never delete).
+  - `MAIL_FETCHING_INTERVAL`: Interval in seconds for fetching emails.
+
 ## Usage
 
 To ensure uninterrupted operation, it's recommended to run the application continuously using a process manager like PM2:
@@ -50,30 +74,6 @@ pm2 delete glpi-email-handler
 ```
 
 This will stop and delete the application gracefully.
-
-## Configuration
-
-GLPIEmailHandler can be configured via environment variables. Create a `.env` file in the root directory and specify the required variables. Use the `.env.example` file as a template.
-
-### Environment Variables
-
-- **IMAP Configuration**:
-  - `MAIL`: Email address.
-  - `MAIL_PASSWORD`: Email password.
-  - `HOST`: IMAP address of the mail host.
-  - `PORT`: IMAP port.
-  - `TLS`: Enable or disable TLS (ON/OFF).
-
-- **GLPI Configuration**:
-  - `GLPI_API_ADDRESS`: URL of the GLPI API.
-  - `TOKEN`: API token for authentication.
-  - `GLPI_USERNAME`: GLPI username (super admin).
-  - `GLPI_PASSWORD`: GLPI password.
-
-- **Global Configuration**:
-  - `SAVE_LOG`: Enable or disable logging (ON/OFF).
-  - `ATTACHMENTS_DELETE_AFTER`: Number of days to keep attachments downloaded from emails (0 to never delete).
-  - `MAIL_FETCHING_INTERVAL`: Interval in seconds for fetching emails.
 
 ## Contributing
 
