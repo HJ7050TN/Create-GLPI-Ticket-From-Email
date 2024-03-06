@@ -8,7 +8,7 @@ module.exports = {
       watch: false,
       time: true,
       autorestart: true,
-      cron_restart: `*/${process.env.MAIL_FETCHING_INTERVAL} * * * *`,
+      cron_restart: `*/${process.env.EMAIL_FETCHING_INTERVAL} * * * *`,
     },
   ],
 };

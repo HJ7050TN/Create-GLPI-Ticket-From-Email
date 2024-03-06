@@ -16,7 +16,7 @@ if (process.env.SAVE_LOG == "ON") {
 }
 
 const apiUrl = process.env.GLPI_API_ADDRESS;
-const appToken = process.env.TOKEN;
+const appToken = process.env.GLPI_TOKEN;
 const auth = {
   username: process.env.GLPI_USERNAME,
   password: process.env.GLPI_PASSWORD,

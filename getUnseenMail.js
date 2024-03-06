@@ -18,11 +18,11 @@ const myPromise = () =>
   new Promise((resolve, reject) => {
     // IMAP configuration
     const imapConfig = {
-      user: process.env.MAIL,
-      password: process.env.MAIL_PASSWORD,
-      host: process.env.HOST,
-      port: process.env.PORT,
-      tls: process.env.TLS == "ON",
+      user: process.env.EMAIL_ADDRESS,
+      password: process.env.EMAIL_PASSWORD,
+      host: process.env.EMAIL_HOST,
+      port: process.env.EMAIL_PORT,
+      tls: process.env.EMAIL_TLS == "ON",
     };
 
     // Connect to the IMAP server
